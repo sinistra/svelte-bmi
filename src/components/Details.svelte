@@ -16,6 +16,9 @@
 <section>
   <div class="container">
     <div class="row mt-5">
+      <h2>Body Mass Index</h2>
+    </div>
+    <div class="row mt-5">
       <div class="col-md-6">
         <div class="card p-2 shadow">
           <div class="card-body">
