@@ -22,9 +22,19 @@
   ];
 </script>
 
+<style>
+  .inline {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+  }
+</style>
+
 <div>
   {#each levels as level}
-    <h5>{level.description}</h5>
-    <div>{bmr * level.value}</div>
+    <div class="inline">
+      <div>{level.description}</div>
+      <div>{bmr * level.value}</div>
+    </div>
   {/each}
 </div>

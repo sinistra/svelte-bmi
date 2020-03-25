@@ -1,7 +1,7 @@
 <script>
   export let weight = 0;
   export let height = 0;
-  export let age = 20;
+  export let age = 0;
   export let gender = "m";
 
   // BMR male = 66.5 + ( 13.75 × weight in kg ) + ( 5.003 × height in cm ) – ( 6.755 × age in years )
@@ -13,9 +13,56 @@
 
   $: baseBMR = 10 * weight + 6.25 * height - 5 * age;
   $: bmr = gender == "m" ? baseBMR + 5 : baseBMR - 161;
+  $: isValid = weight > 0 && height > 0 && age > 0;
+
+  let levels = [
+    { description: "sedentary (little or no exercise)", value: 1.2 },
+    {
+      description: "lightly active (light exercise/sports 1-3 days/week)",
+      value: 1.375
+    },
+    {
+      description: "moderately active (moderate exercise/sports 3-5 days/week)",
+      value: 1.55
+    },
+    {
+      description: "very active (hard exercise/sports 6-7 days a week)",
+      value: 1.725
+    },
+    {
+      description:
+        "extra active (very hard exercise/sports & physical job or 2x training)",
+      value: 1.9
+    }
+  ];
 </script>
 
-<div>
+<style>
+  .inline {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .small {
+    font-size: small;
+  }
+</style>
+
+<div class="inline">
   <h5>BMR</h5>
-  <div>{bmr}</div>
+  {#if isValid}
+    <div>{bmr}</div>
+  {/if}
+</div>
+
+<div>
+<h6>Total Energy Expended</h6>
+  {#each levels as level}
+    <div class="inline small">
+      <div>{level.description}</div>
+      {#if isValid}
+        <div>{(bmr * level.value).toFixed(0)}</div>
+      {/if}
+    </div>
+  {/each}
 </div>

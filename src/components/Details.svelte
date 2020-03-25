@@ -1,7 +1,6 @@
 <script>
   import Bmi from "./Bmi.svelte";
   import Bmr from "./Bmr.svelte";
-  import Tee from "./Tee.svelte";
 
   let weight;
   let height;
@@ -87,7 +86,6 @@
           <div class="card-body">
             <Bmi {weight} {height} />
             <Bmr {weight} {height} {age} {gender} />
-            <Tee bmr="2000" />
           </div>
         </div>
       </div>
