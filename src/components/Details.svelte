@@ -6,11 +6,6 @@
   let height;
   let age;
   let gender = "m";
-
-  function submitBMI() {
-    // console.log(event);
-    console.log(weight, height, age, gender);
-  }
 </script>
 
 <section>
@@ -72,13 +67,6 @@
                 <label class="form-check-label" for="female">Female</label>
               </div>
               <br />
-              <br />
-              <button
-                type="submit"
-                on:click|preventDefault={submitBMI}
-                class="btn btn-primary">
-                Calculate
-              </button>
             </form>
           </div>
         </div>
