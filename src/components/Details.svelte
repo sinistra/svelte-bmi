@@ -77,6 +77,9 @@
           <div class="card-body">
             <Bmi {weight} {height} />
             <Bmr {weight} {height} {age} {gender} />
+            <div style="padding: 5px;">
+              <img src="bmi.png" width="200px" alt="bmi table" />
+            </div>
           </div>
         </div>
       </div>
